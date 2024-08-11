@@ -26,15 +26,15 @@ class PermissionEditWindow(BaseEditWindow):
 
         # Получаем список ContentType
         content_type = ContentType.objects.all()
-        store = [(ct.id, ct.name) for ct in content_type]
+        data = [(ct.id, ct.name) for ct in content_type]
 
         # Создаем ComboBox с помощью make_combo_box
         self.field__content_type = make_combo_box(
             label=u'Выберите тип контента',
-            name='content_type',
-            store=store,
+            name='content_type_id',
             allow_blank=False,
-            anchor='100%'
+            anchor='100%',
+            data=data,
         )
 
 
