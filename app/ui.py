@@ -87,31 +87,40 @@ class UserEditWindow(BaseEditWindow):
             label=u'Email',
             name='email',
             allow_blank=False,
-            anchor='100%'
+            anchor='100%',
+            regex='[^@]+@[^@]+\.[^@]+',
+            regex_text='Неверный адрес электронной почты'
         )
         self.field__is_staff = ext.ExtCheckBox(
             label=u'Администратор',
-            name='is_staff'
+            name='is_staff',
+            anchor='100%',
+            allow_blank=False,
         )
         self.field__is_active = ext.ExtCheckBox(
             label=u'Активен',
-            name='is_active'
+            name='is_active',
+            allow_blank=False,
+            anchor='100%'
         )
         self.field__is_superuser = ext.ExtCheckBox(
             label=u'Суперпользователь',
-            name='is_superuser'
+            name='is_superuser',
+            allow_blank=False,
+            anchor='100%'
         )
         self.field__last_login = ext.ExtDateField(
             label=u'Последний вход',
             name='last_login',
-            format='Y-m-d H:i:s',
-            read_only=True
+            format='d.m.Y',
+            allow_blank=False,
+            anchor='100%'
         )
         self.field__date_joined = ext.ExtDateField(
             label=u'Дата регистрации',
             name='date_joined',
-            format='Y-m-d H:i:s',
-            read_only=True
+            format='d.m.Y',
+            anchor='100%',
         )
         self.field__password = ext.ExtStringField(
             label=u'Пароль',
